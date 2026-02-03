@@ -1,0 +1,104 @@
+/* Product Page Specific Styles */
+.product-section {
+    padding: 4rem 0;
+}
+
+.product-card-large {
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    transition: var(--transition);
+}
+
+.product-card-large:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1.5rem;
+}
+
+.product-icon {
+    font-size: 3rem;
+    color: var(--accent-red);
+    flex-shrink: 0;
+}
+
+.product-header h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+}
+
+.product-header h2 span.subtitle {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.product-content h3 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.product-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.product-content ul {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.product-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.product-content ul li::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.btn-small {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--accent);
+    color: var(--primary);
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-small:hover {
+    background: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+    .product-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

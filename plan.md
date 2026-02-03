@@ -1,43 +1,33 @@
-Implementation Plan - Modernize DBQuest Website
-This plan outlines the steps to transform the legacy DBQuest website into a modern, professional, and responsive web application.
-
+Implementation Plan - About Us Page Refinements
+Goal Description
+Replace Images with Quotes: In 
+about.html
+, replace the illustrative images in the "Our Story", "Where We Came From", and "What We Do" sections with specific one-liner quotes provided by the user.
+Styling: Style these quotes to be visually appealing, maintaining the modern glassmorphism design.
 User Review Required
-IMPORTANT
+NOTE
 
-Legacy Cleanup: I will be removing several legacy scripts (Mootools, old jQuery plugins like Skitter and HxdMenu) to improve performance and maintainability.
-Layout Change: The fixed 901px width layout will be replaced with a fluid, responsive design.
-Aesthetics: I will introduce a "Glassmorphism" effect and a deep blue/gold professional color palette.
+The quotes will replace the images in the alternate layout (Left-Right, Right-Left, Left-Right).
+
 Proposed Changes
-Core Structure
+About Us Page
 [MODIFY] 
-index.html
-Clean up the <head> to remove redundant scripts and styles.
-Replace the <div class="outermainwrapper"> and internal table-based structure with semantic HTML:
-<header> with a sticky navigation.
-<section id="hero"> for a modern hero banner.
-<main> using CSS Grid for the product/service cards.
-<footer> for company info and links.
-Stylesheets
-[NEW] 
-modern.css
-Implement a comprehensive design system using CSS variables.
-Use Flexbox and Grid for all layouts.
-Add utility classes for glassmorphism, gradients, and animations.
-Ensure 100% responsiveness (Mobile-first).
+about.html
+Our Story: Replace right-side image with: "DBQuest delivers cost-efficient, cutting-edge Oracle solutions that empower SMEs to thrive with world-class technology expertise."
+Where We Came From: Replace left-side image with: "Born from years of Oracle experience, DBQuest helps companies unlock the full potential of their database investments to boost productivity and efficiency."
+What We Do: Replace right-side image with: "DBQuest strategically merges technologies to align business goals with innovation, providing tailored solutions that drive long-term success."
+CSS
 [MODIFY] 
-template.css
-Deprecate old styles in favor of modern.css. I will keep it for reference but primarily use the new stylesheet.
+css/about.css
+Add .quote-box class style.
+Glass background (lighter than card).
+Large, elegant font size.
+Accent color for text/border.
+Center alignment.
 Verification Plan
-Automated Tests
-None available in the current project.
-Manual Verification (Using Browser Tool)
-Desktop View (1440px):
-Verify hero section fills the width elegantly.
-Check glassmorphism cards for hover effects.
-Verify the navigation is sticky and clear.
-Mobile View (375px):
-Verify the menu collapses or stacks properly.
-Ensure all content is readable without horizontal scrolling.
-Interactive Elements:
-Click through navigation links.
-Verify hover animations on service cards.
+Manual Verification
+Page Render: Open 
+about.html
+.
+Layout Check: Verify "Our Story" has text left/quote right. "Where We Came From" has quote left/text right. "What We Do" has text left/quote right.
+Responsiveness: Ensure quotes look good on mobile (stack correctly).

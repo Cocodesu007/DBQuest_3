@@ -12,11 +12,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Modern Stylesheet -->
   <link rel="stylesheet" href="css/modern.css">
 
-  <script src="js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
 <body class="animate">
@@ -25,7 +27,7 @@
     <div class="container nav-container">
       <nav>
         <div class="logo">
-          <a href="/"><img src="images/dbquest_logo_final.png" alt="DBQuest Logo"></a>
+          <a href="index.html"><img src="images/dbquest_logo_final.png" alt="DBQuest Logo"></a>
         </div>
 
         <button class="mobile-nav-toggle" aria-label="Toggle menu">
@@ -35,12 +37,24 @@
         </button>
 
         <ul class="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="/index.php/about-us">About Us</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="/index.php/training">Training</a></li>
-          <li><a href="/index.php/careers">Careers</a></li>
-          <li><a href="/index.php/contact-us/inquiry">Contact</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li class="dropdown">
+            <a href="products.html">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="oracle-products.html">Oracle Technology</a></li>
+              <li><a href="hp-products.html">HP BSM</a></li>
+              <li><a href="#">VMware</a></li>
+              <li><a href="mysql-products.html">My SQL</a></li>
+              <li><a href="emc-products.html">EMC</a></li>
+              <li><a href="microsoft-products.html">Microsoft</a></li>
+
+
+            </ul>
+          </li>
+          <li><a href="trainings.html">Training</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -48,17 +62,21 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Enterprise Solutions for the <span>Next Generation.</span></h1>
-          <p>DBQuest, Inc. provides world-class Oracle Technology services, training, and infrastructure solutions to
-            help your business scale effortlessly in the cloud era.</p>
-          <div class="hero-btns">
-            <a href="/index.php/contact-us/inquiry" class="btn">Get Started</a>
-          </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('images/cw22-cloud22.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/home2slide.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/homeslide.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/secondslide.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/sixthslide.png');"></div>
+        <div class="hero-slide" style="background-image: url('images/thirdzslide.png');"></div>
+
+        <!-- Arrow Buttons -->
+        <button class="slider-btn prev">&#10094;</button>
+        <button class="slider-btn next">&#10095;</button>
       </div>
+
     </section>
 
     <!-- Partners Bar -->
@@ -87,29 +105,49 @@
           <!-- Oracle Cloud -->
           <div class="card" style="transition-delay: 0.1s">
             <h3>Oracle Cloud Platform</h3>
-            <p>Leverage the power of IaaS, PaaS, SaaS, and DaaS to modernize your business infrastructure.</p>
-            <a href="/index.php/platform-as-a-service" class="card-link">Explore Cloud</a>
+            <ul style="list-style-type: disc;">
+              <li>Data as a Service</li>
+              <li>Platform as a Service</li>
+              <li>Software as a Service</li>
+              <li>Infrastructure as a Service</li>
+            </ul>
+            <a href="/index.php/platform-as-a-service" class="card-link">View more</a>
           </div>
 
           <!-- Oracle Database -->
           <div class="card" style="transition-delay: 0.2s">
             <h3>Oracle Database</h3>
-            <p>Industry-leading database solutions including Oracle 12c Standard and Enterprise Editions.</p>
-            <a href="/index.php/oracle-12c-standard-edition" class="card-link">Database Services</a>
+            <ul style="list-style-type: disc;">
+              <li>Oracle Trainings</li>
+              <li>Oracle 12c Standard Edition</li>
+              <li>Oracle 12c Enterprise Edition</li>
+              <li>Microsoft</li>
+            </ul>
+            <a href="/index.php/oracle-12c-standard-edition" class="card-link">View more</a>
           </div>
 
           <!-- Oracle Applications -->
           <div class="card" style="transition-delay: 0.3s">
             <h3>Oracle Applications</h3>
-            <p>E-Business Suite, Business Intelligence, and Data Integration solutions for optimized workflows.</p>
-            <a href="/index.php/oracle-f1" class="card-link">View Applications</a>
+            <ul style="list-style-type: disc;">
+              <li>Oracle Data Integration</li>
+              <li>Oracle E-Business Suite</li>
+              <li>Oracle Business Intelligence</li>
+              <li>Microsoft</li>
+            </ul>
+            <a href="/index.php/oracle-f1" class="card-link">View More</a>
           </div>
 
           <!-- Other Services -->
           <div class="card" style="transition-delay: 0.4s">
-            <h3>Infrastructure Services</h3>
-            <p>Partnerships with EMC, VMware, HP BSM, and Microsoft to provide a full-stack infrastructure.</p>
-            <a href="/index.php/emc" class="card-link">Other Services</a>
+            <h3>Other Services</h3>
+            <ul style="list-style-type: disc;">
+              <li>EMC</li>
+              <li>VMware</li>
+              <li>HP BSM</li>
+              <li>Microsoft</li>
+            </ul>
+            <a href="/index.php/emc" class="card-link">View More</a>
           </div>
         </div>
       </div>
@@ -119,11 +157,11 @@
     <section class="cta">
       <div class="container" style="text-align: center; padding: 4rem 0;">
         <div class="card" style="background: var(--accent); color: var(--primary); border: none; padding: 4rem 2rem;">
-          <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Ready to Modernize?</h2>
+          <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Ready to Inquire?</h2>
           <p style="color: rgba(15, 23, 42, 0.8); margin-bottom: 2rem; font-size: 1.1rem;">Join hundreds of companies
             powered by DBQuest infrastructure.</p>
-          <a href="/index.php/careers" class="btn"
-            style="background: var(--primary); color: var(--accent); border-color: var(--primary);">Join Our Team</a>
+          <a href="contact.html" class="btn"
+            style="background: var(--primary); color: var(--accent); border-color: var(--primary);">Inquire</a>
         </div>
       </div>
     </section>
@@ -166,47 +204,7 @@
     </div>
   </footer>
 
-  <script>
-    $(document).ready(function () {
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.card, .hero-content, .section-title, .cta').forEach(el => {
-        el.classList.add('reveal');
-        observer.observe(el);
-      });
-
-      // Mobile Menu Toggle
-      const mobileToggle = document.querySelector('.mobile-nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-
-      mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('nav-active');
-        mobileToggle.classList.toggle('toggle-active');
-        document.body.classList.toggle('no-scroll');
-      });
-
-      // Close menu when link is clicked
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('nav-active');
-          mobileToggle.classList.remove('toggle-active');
-          document.body.classList.remove('no-scroll');
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
