@@ -51,10 +51,17 @@
 }
 
 /* Fix for Select Dropdown Options */
+select.form-control {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    /* Ensure the box itself is dark */
+    color: #fff !important;
+}
+
 select.form-control option {
-    background-color: #1a1a1a;
-    /* Dark background for options */
-    color: var(--text-primary);
+    background-color: #1a1a1a !important;
+    /* Force dark background for options */
+    color: #fff !important;
+    /* Force white text */
 }
 
 textarea.form-control {

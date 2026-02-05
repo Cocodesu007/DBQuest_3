@@ -1,29 +1,35 @@
-Implementation Plan - GD Fix & Form Styling
-Problem Summary
-Fatal Error: Call to undefined function imagecreatetruecolor() means the PHP GD extension is disabled in XAMPP.
-UI Issue: The <select> dropdown inside .form-group has white text on a white background (or transparent), making it unreadable.
-User Action Required
-IMPORTANT
+Implementation Plan - Securing Credentials
+I will move the sensitive SMTP credentials from 
+send_mail.php
+ to a separate configuration file (config.php) and ensure this file is ignored by Git.
 
-You must enable the GD extension in XAMPP manually. I cannot edit your XAMPP configuration files safely.
+User Review Required
+WARNING
 
-Open XAMPP Control Panel.
-Stop Apache.
-Click Config (next to Apache) -> PHP (php.ini).
-Press Ctrl+F and find ;extension=gd.
-Remove the ; at the beginning of the line so it becomes extension=gd.
-Save the file and Start Apache again.
+Credential Rotation: If you have already pushed 
+send_mail.php
+ or 
+phpmailer/mail.php
+ with the password to GitHub, changing it now in the code will NOT remove it from your commit history. You must:
+
+Change your Gmail password (or App Password) immediately.
+Consider scrubbing the history (complex) or deleting the repo and pushing fresh (easier if early in project).
+This plan only protects future pushes.
 Proposed Changes
-CSS Fixes
+Configuration
+[NEW] config.php
+A PHP file returning an array of settings.
+Contains SMTP_HOST, SMTP_USER, SMTP_PASS, etc.
+[NEW] .gitignore
+Add config.php to this file.
+Add other common ignores (e.g., node_modules/, vendor/, .vscode/).
+Backend
 [MODIFY] 
-css/contact.css
-Target .form-group select or option.
-Ensure the background color is dark (or matching theme) and text is readable.
-Since the overall input style is likely dark/glassmorphic, the default dropdown (<option>) often defaults to system white unless styled explicitly.
-Verification Plan
-Captcha: User restarts Apache and reloads 
-captcha.php
-. The error should disappear and show an image.
-Select Dropdown: Reload 
-contact.html
-. Click the "You are a" dropdown. The options should have a dark background with light text.
+send_mail.php
+Include config.php.
+Replace hardcoded strings with variables from the config.
+Verification
+Start the server.
+Send a test email via the contact form.
+Verify email is sent (proving config.php is read correctly).
+Check git status (if git is initialized) to confirm config.php is ignored.

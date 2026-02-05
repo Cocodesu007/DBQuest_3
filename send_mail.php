@@ -17,26 +17,31 @@ require 'phpmailer/PHPMailer-master/src/Exception.php';
 require 'phpmailer/PHPMailer-master/src/PHPMailer.php';
 require 'phpmailer/PHPMailer-master/src/SMTP.php';
 
+// Load configuration
+$config = require 'config.php';
+
 $mail = new PHPMailer(true);
 
 try {
     //Server settings
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = $config['SMTP_HOST'];
     $mail->SMTPAuth = true;
-    $mail->Username = 'teoxondave423@gmail.com';
-    $mail->Password = 'ksfbvnbdfxskuoms';
-    $mail->SMTPSecure = 'ssl'; // PHPMailer::ENCRYPTION_SMTPS
-    $mail->Port = 465;
+    $mail->Username = $config['SMTP_USER'];
+    $mail->Password = $config['SMTP_PASS'];
+    $mail->SMTPSecure = $config['SMTP_SECURE'];
+    $mail->Port = $config['SMTP_PORT'];
 
     //Recipients
     $email = $_POST['email'] ?? '';
     $name = $_POST['fullname'] ?? 'Web User';
 
     $mail->setFrom($email, $name);
+
     // You might want to send TO yourself, not TO the user who filled the form (unless it's an auto-reply).
     // The original mail.php sent TO 'teoxondave423@gmail.com' (the site owner)
-    $mail->addAddress('teoxondave423@gmail.com');
+    // You can also use $config['SMTP_USER'] here or a separate config for destination
+    $mail->addAddress($config['SMTP_USER']);
     $mail->addReplyTo($email, $name);
 
     // CC self if requested
