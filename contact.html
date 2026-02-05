@@ -60,7 +60,7 @@
             <p style="font-size: 0.9rem; color: var(--text-secondary);">Fields marked with ( * ) are required.</p>
           </div>
 
-          <form action="#" method="POST">
+          <form id="contactForm" action="send_mail.php" method="POST">
             <div class="form-group">
               <label for="role">You are a</label>
               <select id="role" name="role" class="form-control">
@@ -74,16 +74,6 @@
             <div class="form-group">
               <label for="company">Company Name</label>
               <input type="text" id="company" name="company" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label for="address">Address</label>
-              <textarea id="address" name="address" class="form-control" rows="3" style="min-height: 100px;"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="fax">Fax</label>
-              <input type="text" id="fax" name="fax" class="form-control">
             </div>
 
             <div class="form-group">
@@ -121,18 +111,63 @@
 
             <div class="captcha-placeholder">
               <p style="margin-bottom:0.5rem; font-size:0.9rem;">Please enter the following security code:</p>
-              <!-- Creating a text-based representation of the 'grapnel' captcha from image for style -->
-              <div
-                style="font-family: 'Times New Roman', serif; font-size: 2rem; font-weight: bold; color: blue; letter-spacing: 5px; background: rgba(255,255,255,0.8); display: inline-block; padding: 0.5rem 1rem; border-radius: 4px; pointer-events: none; user-select: none;">
-                grapnel
+
+              <div style="margin-bottom: 0.5rem;">
+                <!-- Captcha Image -->
+                <img id="captchaImage" src="captcha.php" alt="Security Code"
+                  style="border: 1px solid #ccc; border-radius: 4px; vertical-align: middle;">
+                <!-- Refresh Button -->
+                <button type="button"
+                  onclick="document.getElementById('captchaImage').src = 'captcha.php?' + Math.random();"
+                  style="background: transparent; border: none; cursor: pointer; color: blue; text-decoration: underline; margin-left: 10px; font-size: 0.9rem;">
+                  Can't read? Change text.
+                </button>
               </div>
-              <a href="#">Not readable? Change text.</a>
-              <input type="text" name="captcha" class="form-control" style="width: 200px; margin-top: 0.5rem;">
+
+              <input type="text" name="captcha" class="form-control" style="width: 200px; margin-top: 0.5rem;" required
+                placeholder="Enter code here">
             </div>
 
-            <button type="submit" class="btn"
+            <button type="submit" class="btn" id="submitBtn"
               style="background: var(--primary-light); color: var(--accent); border: 1px solid var(--accent);">SEND</button>
           </form>
+
+          <script>
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+              e.preventDefault();
+
+              const submitBtn = document.getElementById('submitBtn');
+              const originalBtnText = submitBtn.textContent;
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'SENDING...';
+
+              const formData = new FormData(this);
+
+              fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
+              })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.status === 'success') {
+                    alert(data.message);
+                    this.reset();
+                    document.getElementById('captchaImage').src = 'captcha.php?' + Math.random();
+                  } else {
+                    alert(data.message);
+                    document.getElementById('captchaImage').src = 'captcha.php?' + Math.random();
+                  }
+                })
+                .catch(error => {
+                  console.error('Error:', error);
+                  alert('An error occurred. Please try again.');
+                })
+                .finally(() => {
+                  submitBtn.disabled = false;
+                  submitBtn.textContent = originalBtnText;
+                });
+            });
+          </script>
         </div>
 
         <!-- Right Column: Contact Info -->

@@ -50,6 +50,13 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Fix for Select Dropdown Options */
+select.form-control option {
+    background-color: #1a1a1a;
+    /* Dark background for options */
+    color: var(--text-primary);
+}
+
 textarea.form-control {
     resize: vertical;
     min-height: 150px;
