@@ -8,7 +8,7 @@
     --accent-red: #ef4444;
     /* Added for consistency if needed */
     --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --text-secondary: #d4dbe6;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -39,7 +39,7 @@ body {
 
 /* Header & Nav */
 header {
-    background: rgba(36, 46, 69, 0.8);
+    background: rgba(43, 50, 65, 0.801);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding-top: 50px;

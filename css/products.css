@@ -102,3 +102,13 @@
         gap: 1rem;
     }
 }
+
+.category-header {
+    color: var(--accent);
+    font-size: 1.8rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
