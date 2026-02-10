@@ -68,4 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // --- Theme Toggle ---
+  const themeToggle = document.querySelector('.theme-toggle');
+  const body = document.body;
+  const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+  // Check saved preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+      body.setAttribute('data-theme', savedTheme);
+      updateIcon(savedTheme);
+  }
+
+  if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateIcon(newTheme);
+      });
+  }
+
+  function updateIcon(theme) {
+      if (!icon) return;
+      if (theme === 'light') {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+      } else {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+      }
+  }
 });

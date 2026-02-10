@@ -14,69 +14,7 @@
 
     <!-- Modern Stylesheet -->
     <link rel="stylesheet" href="css/modern.css">
-
-    <style>
-        .consulting-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .consulting-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .consulting-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
-
-        .service-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        .service-list li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        .card-header-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .main-description {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-    </style>
+    <link rel="stylesheet" href="css/products.css">
 </head>
 
 <body class="animate">
@@ -105,31 +43,33 @@
                             <li><a href="mysql-products.html">My SQL</a></li>
                             <li><a href="emc-products.html">EMC</a></li>
                             <li><a href="microsoft-products.html">Microsoft</a></li>
-                            <li><a href="consulting-services.html">Database Consulting Services</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#">Training</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">MY SQL</a></li>
-                            <li><a href="#">Oracle IT infrastructure</a></li>
-                            <li><a href="#">Oracle Database</a></li>
-                            <li><a href="#">Java</a></li>
+                            <li><a href="mysql-training.html">MY SQL</a></li>
+                            <li><a href="oracle-infrastructure-training.html">Oracle IT infrastructure</a></li>
+                            <li><a href="oracle-database-training.html">Oracle Database</a></li>
+                            <li><a href="java-training.html">Java</a></li>
                         </ul>
                     </li>
                     <li><a href="career.html">Careers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="container" style="padding-top: 8rem; padding-bottom: 4rem;">
+        <section class="container product-section">
             <div class="section-title">
                 <h2>Database <span>Consulting Services</span></h2>
             </div>
 
-            <div class="main-description">
+            <div class="product-content" style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
                 <p>DBA Consulting Services are essential for businesses that need to manage complex database
                     environments effectively. With the help of our DBA consultants, organizations can ensure their
                     databases are secure, efficient, and aligned with their business goals. Whether it's for optimizing
@@ -137,37 +77,44 @@
                     valuable support and insights.</p>
             </div>
 
-            <div class="consulting-grid">
+            <div class="grid">
                 <!-- Proactive Services -->
-                <div class="consulting-card">
-                    <i class="fa-solid fa-shield-heart card-header-icon"></i>
-                    <h3>Proactive Services</h3>
-                    <p style="color: var(--text-secondary);">Preventive measures to ensure stability and performance.
-                    </p>
-                    <ul class="service-list">
-                        <li>Oracle Health checks</li>
-                        <li>Oracle Database Installation</li>
-                        <li>Oracle Back-up and Recovery</li>
-                        <li>Oracle Data Guard</li>
-                        <li>Oracle Database Performance Tuning</li>
-                        <li>Oracle Database Configurations</li>
-                        <li>Oracle SQL Tuning</li>
-                        <li>Oracle Troubleshooting</li>
-                        <li>Oracle Real Application Clusters</li>
-                        <li>Oracle Database Migration</li>
-                    </ul>
+                <div class="product-card-large" style="margin-bottom: 0;">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                        <h2>Proactive Services</h2>
+                    </div>
+                    <div class="product-content">
+                        <p>Preventive measures to ensure stability and performance.</p>
+                        <ul>
+                            <li>Oracle Health checks</li>
+                            <li>Oracle Database Installation</li>
+                            <li>Oracle Back-up and Recovery</li>
+                            <li>Oracle Data Guard</li>
+                            <li>Oracle Database Performance Tuning</li>
+                            <li>Oracle Database Configurations</li>
+                            <li>Oracle SQL Tuning</li>
+                            <li>Oracle Troubleshooting</li>
+                            <li>Oracle Real Application Clusters</li>
+                            <li>Oracle Database Migration</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Reactive Services -->
-                <div class="consulting-card">
-                    <i class="fa-solid fa-truck-medical card-header-icon"></i>
-                    <h3>Reactive Services</h3>
-                    <p style="color: var(--text-secondary);">Immediate response and resolution for critical issues.</p>
-                    <ul class="service-list">
-                        <li>Emergency Database Recovery and On-call/Onsite Services</li>
-                        <li>Onsite Problem Resolution</li>
-                        <li>Performance Tuning</li>
-                    </ul>
+                <div class="product-card-large" style="margin-bottom: 0;">
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-truck-medical"></i></div>
+                        <h2>Reactive Services</h2>
+                    </div>
+                    <div class="product-content">
+                        <p>Immediate response and resolution for critical issues.</p>
+                        <ul>
+                            <li>Emergency Database Recovery and On-call/Onsite Services</li>
+                            <li>Onsite Problem Resolution</li>
+                            <li>Performance Tuning</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -196,8 +143,7 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="oracle-products.html">Oracle Training</a></li>
-                        <li><a href="products.html">VMware Solutions</a></li>
+                        <li><a href="oracle-database-training.html">Oracle Training</a></li>
                         <li><a href="microsoft-products.html">Microsoft Services</a></li>
                     </ul>
                 </div>

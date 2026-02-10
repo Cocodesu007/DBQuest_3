@@ -1,18 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
+    /* Default Dark Mode */
     --primary: #0f172a;
     --primary-light: #1e293b;
     --accent: #eab308;
     --accent-hover: #ca8a04;
     --accent-red: #ef4444;
-    /* Added for consistency if needed */
     --text-primary: #f8fafc;
     --text-secondary: #d4dbe6;
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --header-bg: rgba(43, 50, 65, 0.8);
+    --card-hover-bg: rgba(255, 255, 255, 0.05);
+    /* Dark mode hover */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+    --primary: #f8fafc;
+    --primary-light: #ffffff;
+    --accent: #eab308;
+    /* Keep accent same or adjust if needed */
+    --accent-hover: #ca8a04;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --glass-bg: rgba(15, 23, 42, 0.05);
+    /* Darker tint for light mode */
+    --glass-border: rgba(15, 23, 42, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --card-hover-bg: rgba(255, 255, 255, 0.8);
+    /* Light mode hover (clean white) */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+    position: relative;
+    z-index: 1002;
+    /* Ensure it's above other elements */
+}
+
+.theme-toggle:hover {
+    background: var(--glass-bg);
+    color: var(--accent);
+    transform: rotate(15deg);
 }
 
 * {
@@ -39,7 +86,7 @@ body {
 
 /* Header & Nav */
 header {
-    background: rgba(43, 50, 65, 0.801);
+    background: var(--header-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding-top: 50px;
@@ -52,8 +99,13 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    /* justify-content: space-between; Removed to use margin-auto method */
+}
+
+.logo {
+    margin-right: auto;
+    /* Pushes nav-links and toggle to the right */
 }
 
 .logo img {
@@ -278,7 +330,7 @@ nav {
 .card:hover {
     transform: translateY(-10px);
     border-color: var(--accent);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-hover-bg);
     box-shadow: var(--glass-shadow);
 }
 
@@ -406,11 +458,39 @@ footer {
         padding: 0 1.5rem;
     }
 
+    .hero {
+        min-height: 500px;
+    }
 }
 
 @media (max-width: 768px) {
     header {
         padding: 0.8rem 0;
+    }
+
+    .hero {
+        min-height: 250px;
+    }
+
+    .hero-slide {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #0f172a;
+        /* Match body bg to hide gaps */
+    }
+
+    .slider-btn {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+
+    .slider-btn.prev {
+        left: 0.5rem;
+    }
+
+    .slider-btn.next {
+        right: 0.5rem;
     }
 
     .mobile-nav-toggle {
@@ -419,18 +499,28 @@ footer {
 
     .nav-links {
         position: fixed;
-        right: 0;
+        left: 0;
+        /* Changed from right: 0 to left: 0 per user request */
         top: 0;
         height: 100vh;
-        width: 70%;
+        width: 75%;
+        /* Slightly wider for better readability */
         background: var(--primary-light);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in-out;
+        align-items: flex-start;
+        /* Align text to left */
+        justify-content: flex-start;
+        /* Start from top */
+        padding-top: 5rem;
+        /* Space for close button/header */
+        padding-left: 2rem;
+        transform: translateX(-100%);
+        /* Start off-screen left */
+        transition: transform 0.3s ease-in-out;
         z-index: 1000;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        /* Enable scrolling */
     }
 
     .nav-links.nav-active {
@@ -438,11 +528,56 @@ footer {
     }
 
     .nav-links li {
-        margin: 1.5rem 0;
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .nav-links a {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        display: block;
+        padding: 1rem 0;
+        width: 100%;
+    }
+
+    /* Mobile Dropdown Fixes */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+        /* Disable hover on mobile */
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* Make dropdowns click/toggle based (requires JS update) or just static for now if hover is issue. 
+       Since we can't easily add JS click toggle right now without editing JS, let's make them always visible or hoverable if needed, 
+       but standard practice is distinct. For now, let's style them to be static relative so they push content down.
+    */
+
+    .dropdown-menu {
+        position: static;
+        /* Stack vertically */
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        border: none;
+        min-width: 100%;
+        padding-left: 1rem;
+        display: none;
+        /* Hidden by default */
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        /* Restore hover for simplicity if no JS toggle, or better yet, make them always visible? No, that's too much. Hover on mobile is tricky. */
+    }
+
+    /* Better approach for pure CSS mobile menu without JS toggle: utilize :focus or keep hover (tap counts as hover on iOS most times) */
+
+    .dropdown-menu a {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
     }
 
     .contact-grid {

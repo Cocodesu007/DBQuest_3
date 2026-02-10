@@ -3,10 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MySQL | DBQuest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>DBQuest, Inc. | Modern Oracle Partner Solutions</title>
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- Modern Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Modern Stylesheet -->
     <link rel="stylesheet" href="css/modern.css">
     <link rel="stylesheet" href="css/products.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body class="animate">
@@ -25,10 +37,10 @@
                 </button>
 
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li class="dropdown">
-                        <a href="products.html" class="active">Products</a>
+                        <a href="#">Products</a>
                         <ul class="dropdown-menu">
                             <li><a href="oracle-products.html">Oracle Technology</a></li>
                             <li><a href="hp-products.html">HP BSM</a></li>
@@ -48,65 +60,59 @@
                     <li><a href="career.html">Careers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-
                 <button class="theme-toggle" aria-label="Toggle Dark/Light Mode">
                     <i class="fas fa-sun"></i>
                 </button>
             </nav>
         </div>
     </header>
-
     <main class="container product-section">
         <div class="section-title">
-            <h2>Top Reasons to Use <span>MySQL</span></h2>
-            <p>Why the world's most popular open source database is the right choice for your business.</p>
+            <h2>MySQL <span>Learning Subscription</span></h2>
         </div>
-
-        <!-- MySQL Standard Edition -->
         <div class="product-card-large">
             <div class="product-header">
-                <div class="product-icon"><i class="fa-solid fa-server"></i></div>
-                <h2>MySQL Standard Edition</h2>
+                <div class="product-icon"><i class="fa-solid fa-database"></i></div>
+                <h2>MySQL 8.0 for Database Administrators
+                    <span class="subtitle">Course Duration: 5 Days</span>
+                </h2>
             </div>
             <div class="product-content">
-                <p>MySQL Standard Edition enables you to deliver high-performance and scalable Online Transaction
-                    Processing (OLTP) applications. It provides the ease of use that has made MySQL famous along
-                    with industrial strength performance and reliability.</p>
-                <p>MySQL Standard Edition includes InnoDB, making it a fully integrated transaction-safe, ACID
-                    compliant database. In addition, MySQL Replication allows you to deliver high-performance and
-                    scalable applications.</p>
+                <p>This course will be delivered with a live lab The MySQL for Database Administrators enables DBAs and
+                    other database professionals to maximize their organization’s investment in MySQL. Learn to
+                    configure the MySQL Server, set up replication and security, perform database backups and
+                    recoveries, optimize query performance, and configure for high availability.</p>
+
             </div>
         </div>
-
-        <!-- MySQL Enterprise Edition -->
         <div class="product-card-large">
             <div class="product-header">
-                <div class="product-icon"><i class="fa-solid fa-building-shield"></i></div>
-                <h2>MySQL Enterprise Edition</h2>
+                <div class="product-icon"><i class="fa-solid fa-code"></i></div>
+                <h2>MySQL 8.0 for Developers
+                    <span class="subtitle">Course Duration: 5 Days</span>
+                </h2>
             </div>
             <div class="product-content">
-                <p>MySQL Enterprise Edition includes the most comprehensive set of advanced features, management
-                    tools, and technical support to achieve the highest levels of MySQL scalability, security,
-                    reliability, and uptime. It reduces the risk, cost, and complexity in developing, deploying, and
-                    managing MySQL applications.</p>
+                <p>In this course, students will learn how to: Program with Connectors; Write console and web
+                    applications; Optimize query performance; Write stored routines and triggers; Store, access, and
+                    analyze geospatial data and Use X DevAPI to access JSON data in document store
             </div>
         </div>
-
-        <!-- MySQL Cluster CGE -->
         <div class="product-card-large">
             <div class="product-header">
-                <div class="product-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <h2>MySQL Cluster CGE</h2>
+                <div class="product-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <h2>MySQL 8.0: Performance Tuning
+                    <span class="subtitle">Course Duration: 4 Days</span>
+                </h2>
             </div>
             <div class="product-content">
-                <p>MySQL Cluster CGE enables customers to run mission-critical applications with 99.9999%
-                    availability. It is a distributed, real-time, ACID-compliant transactional database that scales
-                    horizontally for read and write-intensive workloads.</p>
+                <p>After attending this course you will understand performance tuning concepts; be able to benchmark and
+                    tune your server; investigate performance metrics with a range of system databases, command-line,
+                    and graphical tools; design your schema for optimal performance; identify and optimize slow queries,
+                    and troubleshoot common performance problems.
             </div>
         </div>
-
     </main>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -132,7 +138,7 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:info@databasequest.com">info@databasequest.com</a></li>
+                        <li><a href="mailto:inquiry@databasequest.com">inquiry@databasequest.com</a></li>
                         <li><a href="contact.html">Inquiry Form</a></li>
                     </ul>
                 </div>
@@ -143,7 +149,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+
 </body>
 
 </html>
